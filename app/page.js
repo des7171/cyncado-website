@@ -37,6 +37,7 @@ export default function Home() {
 
   return (
     <main>
+      {/* Navigation */}
       <nav style={{
         position: 'fixed',
         top: 0,
@@ -68,6 +69,7 @@ export default function Home() {
         </div>
       </nav>
 
+      {/* Hero Section */}
       <section style={{
         minHeight: '100vh',
         display: 'flex',
@@ -96,6 +98,7 @@ export default function Home() {
           pointerEvents: 'none',
         }} />
 
+        {/* Animated Logo */}
         <div 
           className={animationPhase >= 4 ? 'animate-float' : ''}
           style={{
@@ -175,6 +178,7 @@ export default function Home() {
           )}
         </div>
 
+        {/* Tags */}
         <div style={{
           display: 'flex',
           gap: '12px',
@@ -187,6 +191,7 @@ export default function Home() {
           <span className="tag tag-lime">A2B Antagonist</span>
         </div>
 
+        {/* Hero Text */}
         <h1 style={{
           fontSize: '56px',
           fontWeight: '700',
@@ -214,9 +219,9 @@ export default function Home() {
           transform: animationPhase >= 5 ? 'translateY(0)' : 'translateY(30px)',
           transition: 'all 1s ease-out 0.2s',
         }}>
-          Pioneering dual adenosine receptor antagonist therapy — two drugs working 
-          in perfect synchronization to unlock the immune system&apos;s power against 
-          rare and difficult-to-treat cancers.
+          Pioneering dual adenosine receptor antagonist therapy, with target 
+          synchronization to unlock the immune system&apos;s power against rare 
+          and difficult-to-treat cancers.
         </p>
 
         <div style={{ 
@@ -231,42 +236,224 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Science Section */}
       <section id="science" style={{ padding: '120px 40px', maxWidth: '1200px', margin: '0 auto' }}>
         <h2 style={{ fontSize: '44px', fontWeight: '700', marginBottom: '20px', letterSpacing: '-1px' }}>
           The Power of <span className="gradient-text">Synchronization</span>
         </h2>
         <p style={{ fontSize: '18px', color: '#888', maxWidth: '700px', lineHeight: '1.7', marginBottom: '60px' }}>
           Tumors exploit the adenosine pathway to suppress immune responses. 
-          Our dual-antagonist approach simultaneously blocks both A2A and A2B receptors.
+          Our dual-antagonist approach simultaneously blocks both A2A and A2B receptors, 
+          delivering a synchronized attack that releases the brakes on your immune system.
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }}>
           <div className="card">
             <h3 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '12px', color: '#159F6A' }}>TT-4</h3>
             <p style={{ color: '#888', fontSize: '15px', lineHeight: '1.6' }}>
-              Our lead A2A receptor antagonist for mesothelioma.
+              A2BR antagonist — our lead program targeting mesothelioma, sickle cell disease, and asthma.
             </p>
           </div>
           <div className="card">
             <h3 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '12px', color: '#A2CE22' }}>TT-10</h3>
             <p style={{ color: '#888', fontSize: '15px', lineHeight: '1.6' }}>
-              Complementary A2B receptor antagonist.
+              A2AR antagonist — targeting solid tumors and Parkinson&apos;s disease with Phase I/II and Phase II ready programs.
             </p>
           </div>
           <div className="card">
             <h3 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '12px' }}>
-              <span className="gradient-text">Synergy</span>
+              <span className="gradient-text">TT-4 + TT-10</span>
             </h3>
             <p style={{ color: '#888', fontSize: '15px', lineHeight: '1.6' }}>
-              Together maximizing immune activation.
+              Dual A2BR + A2AR blockade — synchronized combination therapy for prostate cancer and RCC.
             </p>
           </div>
         </div>
       </section>
 
+      {/* Pipeline Section */}
+      <section id="pipeline" style={{ 
+        padding: '120px 40px', 
+        background: 'linear-gradient(180deg, #080808 0%, #050505 100%)',
+        borderTop: '1px solid #151515',
+        borderBottom: '1px solid #151515',
+      }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <h2 style={{ fontSize: '44px', fontWeight: '700', marginBottom: '12px', letterSpacing: '-1px' }}>
+            Pipeline: <span className="gradient-text">Adenosine Axis</span>
+          </h2>
+          <p style={{ fontSize: '20px', color: '#666', marginBottom: '60px' }}>
+            One Pathway, Multiple Diseases
+          </p>
+
+          {/* Pipeline Table */}
+          <div style={{ overflowX: 'auto' }}>
+            {/* Header */}
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: '140px 1fr 100px 120px 1fr 140px',
+              gap: '1px',
+              marginBottom: '2px',
+              padding: '16px 20px',
+              background: '#0a0a0a',
+              borderRadius: '12px 12px 0 0',
+              fontSize: '12px',
+              fontWeight: '600',
+              color: '#159F6A',
+              textTransform: 'uppercase',
+              letterSpacing: '0.5px',
+            }}>
+              <div>Therapeutic Area</div>
+              <div>Indication</div>
+              <div>Asset</div>
+              <div>Target</div>
+              <div>Stage</div>
+              <div>Funding</div>
+            </div>
+
+            {/* Oncology Section */}
+            <PipelineCategory 
+              category="ONCOLOGY" 
+              color="#159F6A"
+              items={[
+                { indication: 'Mesothelioma', asset: 'TT-4', target: 'A2BR', stage: 'Phase I/II Active', stageType: 'lead', funding: 'Direct Investment & ISTs/Grants' },
+                { indication: 'Solid Tumors', asset: 'TT-10', target: 'A2AR', stage: 'Phase I/II Active', stageType: 'active', funding: 'ISTs/Grants' },
+                { indication: 'Prostate/RCC', asset: 'TT-4 + TT-10', target: 'A2BR + A2AR', stage: 'Phase I/II Active', stageType: 'active', funding: 'ISTs/Grants/Direct' },
+                { indication: 'Solid Tumors', asset: 'TT-53', target: 'A2AR/A2BR', stage: 'Preclinical', stageType: 'preclinical', funding: 'Grants/Partner' },
+                { indication: 'Gut Cancers', asset: 'TT-3', target: 'A2BR', stage: 'Preclinical/IND Ready', stageType: 'ind', funding: 'Grants' },
+              ]}
+            />
+
+            {/* Neurology Section */}
+            <PipelineCategory 
+              category="NEUROLOGY" 
+              color="#A2CE22"
+              items={[
+                { indication: "Parkinson's Disease", asset: 'TT-10', target: 'A2AR', stage: 'Phase II Ready', stageType: 'phase2', funding: 'Grants/Partner' },
+              ]}
+            />
+
+            {/* Hematologic Section */}
+            <PipelineCategory 
+              category="HEMATOLOGIC" 
+              color="#e74c3c"
+              items={[
+                { indication: 'Sickle Cell Disease', asset: 'TT-4', target: 'A2BR', stage: 'Preclinical/IND Ready', stageType: 'ind', funding: 'Grants/Partner' },
+              ]}
+            />
+
+            {/* Pulmonary Section */}
+            <PipelineCategory 
+              category="PULMONARY" 
+              color="#3498db"
+              items={[
+                { indication: 'Asthma', asset: 'TT-4', target: 'A2BR', stage: 'Preclinical/IND Ready', stageType: 'ind', funding: 'Grants/Partner' },
+              ]}
+            />
+          </div>
+
+          <p style={{ fontSize: '12px', color: '#555', marginTop: '20px' }}>
+            *IST = Investigator Sponsored Trials
+          </p>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section style={{ padding: '80px 40px' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '40px', textAlign: 'center' }}>
+          {[
+            { value: '70+', label: 'Patents Filed' },
+            { value: '5', label: 'Clinical Assets' },
+            { value: '4', label: 'Therapeutic Areas' },
+            { value: '2026', label: 'US Trial Target' },
+          ].map((stat, i) => (
+            <div key={i}>
+              <div style={{ fontSize: '52px', fontWeight: '700', marginBottom: '8px' }} className="gradient-text">
+                {stat.value}
+              </div>
+              <div style={{ color: '#666', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '1px' }}>
+                {stat.label}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Footer */}
       <footer style={{ padding: '40px', borderTop: '1px solid #151515', textAlign: 'center' }}>
         <p style={{ color: '#444', fontSize: '13px' }}>© 2026 Cyncado Therapeutics. All rights reserved.</p>
       </footer>
     </main>
+  )
+}
+
+function PipelineCategory({ category, color, items }) {
+  return (
+    <div style={{ marginBottom: '2px', borderLeft: `4px solid ${color}` }}>
+      {items.map((item, index) => (
+        <div 
+          key={index}
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '140px 1fr 100px 120px 1fr 140px',
+            gap: '1px',
+            padding: '16px 20px',
+            background: '#0a0a0a',
+            alignItems: 'center',
+            fontSize: '14px',
+          }}
+        >
+          <div style={{ 
+            color: color, 
+            fontWeight: '700',
+            fontSize: '12px',
+            visibility: index === 0 ? 'visible' : 'hidden',
+          }}>
+            {category}
+          </div>
+          <div style={{ color: '#ccc' }}>{item.indication}</div>
+          <div style={{ color: '#fff', fontWeight: '500' }}>{item.asset}</div>
+          <div style={{ color: '#888' }}>{item.target}</div>
+          <div>
+            <StageIndicator stage={item.stage} type={item.stageType} />
+          </div>
+          <div style={{ color: '#666', fontSize: '12px' }}>{item.funding}</div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+function StageIndicator({ stage, type }) {
+  const getStyle = () => {
+    switch(type) {
+      case 'lead':
+        return { background: '#159F6A', color: '#fff', border: 'none' }
+      case 'active':
+        return { background: 'rgba(21, 159, 106, 0.2)', color: '#159F6A', border: '1px solid #159F6A' }
+      case 'phase2':
+        return { background: 'transparent', color: '#A2CE22', border: '1px solid #A2CE22' }
+      case 'preclinical':
+        return { background: 'transparent', color: '#888', border: '1px solid #444' }
+      case 'ind':
+        return { background: 'transparent', color: '#888', border: '1px solid #666' }
+      default:
+        return { background: 'transparent', color: '#888', border: '1px solid #444' }
+    }
+  }
+
+  const style = getStyle()
+
+  return (
+    <span style={{
+      display: 'inline-block',
+      padding: '6px 12px',
+      borderRadius: '20px',
+      fontSize: '11px',
+      fontWeight: '500',
+      ...style,
+    }}>
+      {stage}
+    </span>
   )
 }
 
