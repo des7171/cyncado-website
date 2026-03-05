@@ -65,7 +65,7 @@ export default function Home() {
           <a className="nav-link" href="#science">Science</a>
           <a className="nav-link" href="#pipeline">Pipeline</a>
           <a className="nav-link" href="#about">About</a>
-          <a className="nav-link" href="#contact">Contact</a>
+          <a className="nav-link" href="/contact">Contact</a>
         </div>
       </nav>
 
