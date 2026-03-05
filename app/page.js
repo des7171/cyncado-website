@@ -64,7 +64,13 @@ export default function Home() {
         <div style={{ display: 'flex', gap: '40px', alignItems: 'center' }}>
           <a className="nav-link" href="#science">Science</a>
           <a className="nav-link" href="#pipeline">Pipeline</a>
-          <a className="nav-link" href="#about">About</a>
+          <NavDropdown 
+            label="About Us" 
+            items={[
+              { label: 'Our Mission', href: '/mission' },
+              { label: 'Leadership', href: '/leadership' },
+            ]} 
+          />
           <a className="nav-link" href="/contact">Contact</a>
         </div>
       </nav>
@@ -454,6 +460,93 @@ function StageIndicator({ stage, type }) {
     }}>
       {stage}
     </span>
+  )
+}
+
+function NavDropdown({ label, items }) {
+  const [isOpen, setIsOpen] = useState(false)
+  
+  return (
+    <div 
+      style={{ position: 'relative' }}
+      onMouseEnter={() => setIsOpen(true)}
+      onMouseLeave={() => setIsOpen(false)}
+    >
+      <button
+        style={{
+          background: 'none',
+          border: 'none',
+          color: '#888',
+          fontSize: '14px',
+          fontWeight: '500',
+          cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '4px',
+          padding: 0,
+          transition: 'color 0.2s ease',
+        }}
+        onMouseOver={(e) => e.currentTarget.style.color = '#fff'}
+        onMouseOut={(e) => e.currentTarget.style.color = isOpen ? '#fff' : '#888'}
+      >
+        {label}
+        <svg 
+          width="12" 
+          height="12" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          strokeWidth="2"
+          style={{
+            transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+            transition: 'transform 0.2s ease',
+          }}
+        >
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </button>
+      
+      {isOpen && (
+        <div style={{
+          position: 'absolute',
+          top: '100%',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          marginTop: '12px',
+          background: 'rgba(10, 10, 10, 0.98)',
+          border: '1px solid #222',
+          borderRadius: '8px',
+          padding: '8px 0',
+          minWidth: '160px',
+          boxShadow: '0 10px 40px rgba(0, 0, 0, 0.5)',
+        }}>
+          {items.map((item, index) => (
+            <a
+              key={index}
+              href={item.href}
+              style={{
+                display: 'block',
+                padding: '10px 20px',
+                color: '#aaa',
+                textDecoration: 'none',
+                fontSize: '14px',
+                transition: 'all 0.15s ease',
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.color = '#fff'
+                e.currentTarget.style.background = 'rgba(21, 159, 106, 0.1)'
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.color = '#aaa'
+                e.currentTarget.style.background = 'transparent'
+              }}
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
   )
 }
 
