@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #050505;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+@keyframes subtleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { 
+    filter: drop-shadow(0 0 15px rgba(21, 159, 106, 0.2)) drop-shadow(0 0 30px rgba(162, 206, 34, 0.15)); 
+  }
+  50% { 
+    filter: drop-shadow(0 0 25px rgba(21, 159, 106, 0.4)) drop-shadow(0 0 50px rgba(162, 206, 34, 0.25)); 
+  }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #159F6A 0%, #A2CE22 50%, #159F6A 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 4s ease infinite;
+}
+
+.animate-float {
+  animation: subtleFloat 6s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+.nav-link {
+  color: #888;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  color: #fff;
+}
+
+.card {
+  background: linear-gradient(145deg, #0a0a0a, #111);
+  border: 1px solid #1a1a1a;
+  border-radius: 16px;
+  padding: 32px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  border-color: rgba(21, 159, 106, 0.25);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(21, 159, 106, 0.1);
+}
+
+.btn {
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #159F6A, #128a5c);
+  color: #fff;
+  border: none;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(21, 159, 106, 0.3);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #333;
+}
+
+.btn-secondary:hover {
+  border-color: #159F6A;
+  color: #159F6A;
+}
+
+.tag {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.tag-green {
+  background: rgba(21, 159, 106, 0.12);
+  color: #159F6A;
+}
+
+.tag-lime {
+  background: rgba(162, 206, 34, 0.12);
+  color: #A2CE22;
+}
